@@ -1,6 +1,6 @@
 ---
 title: "Jessica French"
-image: catalina_selfie.png
+image: images/catalina_selfie.png
 about: 
   template: jolla
   image-shape: round
