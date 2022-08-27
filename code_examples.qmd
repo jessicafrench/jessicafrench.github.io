@@ -1,4 +1,8 @@
 ---
 title: "Code Examples"
 editor: visual
+listing: 
+  contents: code_examples
+  type: grid
+  categories: true
 ---

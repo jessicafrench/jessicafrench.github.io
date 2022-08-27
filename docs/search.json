@@ -1,0 +1,16 @@
+[
+  {
+    "objectID": "code_examples.html",
+    "href": "code_examples.html",
+    "title": "Code Examples",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "code_examples/data_viz_examples.html",
+    "href": "code_examples/data_viz_examples.html",
+    "title": "Data Visualization",
+    "section": "",
+    "text": "library(tidyverse)\nlibrary(palmerpenguins)\n\n\n\n\nexample_plot <- ggplot(data = penguins, \n                       aes(x = bill_depth_mm,\n                           y = bill_length_mm)) +\n  geom_point()\n\nexample_plot"
+  }
+]

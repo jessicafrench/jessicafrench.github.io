@@ -9,6 +9,8 @@ website:
         - href: index.qmd
           text: Home
         - href: about.qmd
+        - href: code_examples.qmd
+          text: Code Examples
       
 
 format:
