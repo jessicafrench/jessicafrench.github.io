@@ -1,9 +1,5 @@
 ---
-title: "About"
+title: "about"
+image: "cataline_selfie.png"
+editor: visual
 ---
-
-About this site
-
-```{r}
-1 + 1
-```

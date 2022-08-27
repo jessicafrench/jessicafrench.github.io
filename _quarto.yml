@@ -3,12 +3,14 @@ project:
   output-dir: docs
 
 website:
+  logo: "catalina_selfie.png"
   title: "Jessica French"
   navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+      left:
+        - href: index.qmd
+          text: Home
+        - href: about.qmd
+      
 
 format:
   html:

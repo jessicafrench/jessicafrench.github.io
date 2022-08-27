@@ -2,8 +2,8 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "about",
     "section": "",
-    "text": "1 + 1\n\n[1] 2"
+    "text": "library(here)\n\nhere() starts at /Users/sara/jfrench/My_Documents/MEDS/Website/jessicafrench.github.io"
   }
 ]
