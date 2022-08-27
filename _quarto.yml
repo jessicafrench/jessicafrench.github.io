@@ -3,7 +3,6 @@ project:
   output-dir: docs
 
 website:
-  logo: "catalina_selfie.png"
   title: "Jessica French"
   navbar:
       left:

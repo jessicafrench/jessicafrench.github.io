@@ -1,3 +1,8 @@
 ---
 title: "Jessica French"
+image: catalina_selfie.png
+about: 
+  template: trestles
+  image-shape: round
+  image-width: 15em
 ---
