@@ -13,7 +13,8 @@ website:
 
 format:
   html:
-    theme: pulse
+    theme: 
+      - pulse
     css: styles.css
     toc: true
 
