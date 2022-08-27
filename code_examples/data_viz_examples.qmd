@@ -1,11 +1,16 @@
 ---
-title: "Data Visualization"
+title: "Basic ggplot"
+image: /images/ggplot2.png
+image-width: "25"
+image-height: "25"
 editor: visual
 execute: 
   warning: false
+
+categories: [Data Visualization]
+
 ---
 
-# Graphing with ggplot
 
 ```{r message = FALSE}
 library(tidyverse)
@@ -15,7 +20,6 @@ library(palmerpenguins)
 ### A basic scatter plot
 
 ```{r}
-
 example_plot <- ggplot(data = penguins, 
                        aes(x = bill_depth_mm,
                            y = bill_length_mm)) +
