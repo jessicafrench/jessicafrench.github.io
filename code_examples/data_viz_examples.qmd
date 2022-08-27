@@ -21,3 +21,19 @@ example_plot <- ggplot(data = penguins,
 
 example_plot
 ```
+
+Lets spice this up a bit by having each penguin species show up as a different color and adding a theme. 
+
+### Mapping aesthetics
+reminder: when changing something on the graph based on a variable, like point color below, it need to go inside the function `aes()`.
+
+```{r}
+example_plot <- ggplot(data = penguins, 
+                       aes(x = bill_depth_mm,
+                           y = bill_length_mm)) +
+  geom_point(aes(color = species)) +
+  theme_light()
+
+example_plot
+```
+

@@ -139,7 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <a class="nav-link" href="../index.html">Home</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about.html">about</a>
+    <a class="nav-link" href="../about.html">About</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../code_examples.html">Code Examples</a>
@@ -162,6 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#graphing-with-ggplot" id="toc-graphing-with-ggplot" class="nav-link active" data-scroll-target="#graphing-with-ggplot">Graphing with ggplot</a>
   <ul class="collapse">
   <li><a href="#a-basic-scatter-plot" id="toc-a-basic-scatter-plot" class="nav-link" data-scroll-target="#a-basic-scatter-plot">A basic scatter plot</a></li>
+  <li><a href="#mapping-aesthetics" id="toc-mapping-aesthetics" class="nav-link" data-scroll-target="#mapping-aesthetics">Mapping aesthetics</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -202,6 +203,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>example_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="data_viz_examples_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Lets spice this up a bit by having each penguin species show up as a different color and adding a theme.</p>
+</section>
+<section id="mapping-aesthetics" class="level3">
+<h3 class="anchored" data-anchor-id="mapping-aesthetics">Mapping aesthetics</h3>
+<p>reminder: when changing something on the graph based on a variable, like point color below, it need to go inside the function <code>aes()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>example_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> penguins, </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">y =</span> bill_length_mm)) <span class="sc">+</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>example_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="data_viz_examples_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 
