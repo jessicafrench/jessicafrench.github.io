@@ -1,6 +1,8 @@
 ---
 title: "Data Visualization"
 editor: visual
+execute: 
+  warning: false
 ---
 
 # Graphing with ggplot
@@ -12,7 +14,7 @@ library(palmerpenguins)
 
 ### A basic scatter plot
 
-```{r warning = FALSE}
+```{r}
 
 example_plot <- ggplot(data = penguins, 
                        aes(x = bill_depth_mm,
@@ -33,6 +35,20 @@ example_plot <- ggplot(data = penguins,
                            y = bill_length_mm)) +
   geom_point(aes(color = species)) +
   theme_light()
+
+example_plot
+```
+This is looking good but we can do better. Lets update the axis titles and give our graph a title. 
+
+```{r}
+example_plot <- ggplot(data = penguins, 
+                       aes(x = bill_depth_mm,
+                           y = bill_length_mm)) +
+  geom_point(aes(color = species)) +
+  theme_light() +
+  labs(x = "Bill Depth (mm)",
+       y = "Bill Length (mm)",
+       title = "Penguin Bill Depth Compared to Bill Length")
 
 example_plot
 ```
