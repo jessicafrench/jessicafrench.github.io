@@ -2,7 +2,17 @@
 title: "Jessica French"
 image: catalina_selfie.png
 about: 
-  template: trestles
+  template: jolla
   image-shape: round
   image-width: 15em
+  links: 
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/jessicafrench1/
+    - icon: github
+      text: GitHub
+      href: https://github.com/jessicafrench
+    - icon: envelope
+      text: Email
+      href: mailto:jfrench@bren.ucsb.edu
 ---
