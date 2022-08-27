@@ -27,7 +27,8 @@ example_plot
 Lets spice this up a bit by having each penguin species show up as a different color and adding a theme. 
 
 ### Mapping aesthetics
-reminder: when changing something on the graph based on a variable, like point color below, it need to go inside the function `aes()`.
+
+reminder: when changing something on the graph based on a variable, like point color below, it needs to go inside the function `aes()`.
 
 ```{r}
 example_plot <- ggplot(data = penguins, 
@@ -39,6 +40,8 @@ example_plot <- ggplot(data = penguins,
 example_plot
 ```
 This is looking good but we can do better. Lets update the axis titles and give our graph a title. 
+
+### Axis labels and titles
 
 ```{r}
 example_plot <- ggplot(data = penguins, 
