@@ -1,14 +1,9 @@
 ---
 title: "Basic ggplot"
-image: /images/ggplot2.png
-image-width: "25"
-image-height: "25"
 editor: visual
 execute: 
   warning: false
-
 categories: [Data Visualization]
-
 ---
 
 
@@ -27,6 +22,8 @@ example_plot <- ggplot(data = penguins,
 
 example_plot
 ```
+
+
 
 Lets spice this up a bit by having each penguin species show up as a different color and adding a theme. 
 

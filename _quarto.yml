@@ -1,7 +1,6 @@
 project:
   type: website
   output-dir: docs
-
 website:
   title: "Jessica French"
   navbar:
@@ -12,8 +11,6 @@ website:
           text: About
         - href: code_examples.qmd
           text: Code Examples
-      
-
 format:
   html:
     theme: 
