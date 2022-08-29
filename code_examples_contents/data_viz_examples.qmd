@@ -6,11 +6,12 @@ execute:
 categories: [Data Visualization]
 ---
 
-
 ```{r message = FALSE}
 library(tidyverse)
 library(palmerpenguins)
 ```
+
+![](/images/ggplot2.png){fig-align="center" width="236"}
 
 ### A basic scatter plot
 
@@ -23,9 +24,7 @@ example_plot <- ggplot(data = penguins,
 example_plot
 ```
 
-
-
-Lets spice this up a bit by having each penguin species show up as a different color and adding a theme. 
+Lets spice this up a bit by having each penguin species show up as a different color and adding a theme.
 
 ### Mapping aesthetics
 
@@ -40,7 +39,8 @@ example_plot <- ggplot(data = penguins,
 
 example_plot
 ```
-This is looking good but we can do better. Lets update the axis titles and give our graph a title. 
+
+This is looking good but we can do better. Lets update the axis titles and give our graph a title.
 
 ### Axis labels and titles
 
@@ -56,4 +56,3 @@ example_plot <- ggplot(data = penguins,
 
 example_plot
 ```
-
