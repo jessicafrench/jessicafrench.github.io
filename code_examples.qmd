@@ -1,12 +1,12 @@
 ---
 title: "Code Examples"
-editor: visual
+#editor: visual
 listing: 
   contents: code_examples_contents
   type: grid
   #grid-item-border: true
   #grid-item-align: left
-  categories: true
+  #categories: true
   #sort-ui: false
-page-layout: full
+#page-layout: full
 ---

@@ -3,6 +3,7 @@ title: "Basic ggplot"
 editor: visual
 execute: 
   warning: false
+description: "Basic ggplot example"
 categories: [Data Visualization]
 ---
 
@@ -11,7 +12,7 @@ library(tidyverse)
 library(palmerpenguins)
 ```
 
-![](/images/ggplot2.png){fig-align="center" width="236"}
+![](preview_images/ggplot2.png){fig-align="center" width="224"}
 
 ### A basic scatter plot
 
