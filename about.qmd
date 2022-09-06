@@ -1,5 +1,23 @@
 ---
-title: "about"
-image: "cataline_selfie.png"
+title: "About"
+image: images/catalina_selfie.png
 editor: visual
 ---
+
+### Education
+
+**Master of Environmental Data Science** (MEDS) at the Bren School of Environmental Science & Management. Anticipated graduation June 2023.
+
+**B.S. Biology** with a focus in marine biology from Oregon State University 2022
+
+• GPA 4.0
+
+**B.A. Anthropology** with a focus in archaeology from University of Oregon 2013
+
+• Minor in Geological Sciences
+
+• GPA 3.63
+
+### Experience
+
+### Personal

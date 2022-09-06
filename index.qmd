@@ -17,6 +17,8 @@ about:
       href: mailto:jfrench@bren.ucsb.edu
 ---
 
+## About Me
+
 > Jessica recently started the Master of Environmental Data
 > Science (MEDS) program at the Bren School of Environmental Science and
 > Management after graduating from Oregon State University with a Bachelor of Science in Marine Biology. She previously studied anthropology at the
