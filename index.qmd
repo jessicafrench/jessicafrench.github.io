@@ -2,7 +2,7 @@
 title: "Jessica French"
 image: images/catalina_selfie.png
 about: 
-  template: jolla
+  template: trestles
   image-shape: round
   image-width: 15em
   links: 
@@ -16,3 +16,8 @@ about:
       text: Email
       href: mailto:jfrench@bren.ucsb.edu
 ---
+
+> Jessica recently started the Master of Environmental Data
+> Science (MEDS) program at the Bren School of Environmental Science and
+> Management after graduating from Oregon State University with a Bachelor of Science in Marine Biology. She previously studied anthropology at the
+> University of Oregon, graduating in 2013, before serving in the United States Coast Guard from 2015 to 2019. Her time in the Coast Guard and time spent working as a deckhand in the commercial fishing industry allowed her to experience multiple perspectives on the regulation of marine resources. An internship with the Oregon Department of Fish and Wildlife and volunteering with Oregon Reef Check exposed her to how data is collected and used to monitor the ecological and community impacts of marine reserves. Jessica hopes to use the skills she is learning in the MEDS program to aid in the management of marine resources and make the regulatory process transparent and understandable to marine resource users.
