@@ -11,7 +11,7 @@ categories: [MEDS, Movies]
 citation: 
   url: https://jessicafrench.github.io/blog_posts/2022-10-24-scary-movies
 bibliography: references.bib
-draft: false
+draft: TRUE
 ---
 
 This is an example
