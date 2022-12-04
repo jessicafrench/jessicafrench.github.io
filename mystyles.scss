@@ -1,0 +1,31 @@
+/*-- scss:defaults --*/
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+// Colors 
+$dark-purple: #471166;
+$greenish-blue: #3ea392;
+$greyish-white: #d5e0df;
+
+// Base Document Colors 
+$navbar-bg: $dark-purple;
+$body-bg: $greyish-white;
+
+/*-- scss:rules --*/
+
+h1, h3 {
+  letter-spacing: 8px;
+  font-weight: 700;
+  color: $greenish-blue;
+}
+
+.title {
+  color: $dark_purple;
+}
+
+.custom-subtitle {
+  font-size: 22px;
+  font-style: italic;
+  color: $dark_purple;
+}

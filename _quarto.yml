@@ -1,8 +1,10 @@
 project:
   type: website
   output-dir: docs
+  
 website:
   title: "Jessica French"
+  favicon: "images/trillium-flower-png.png"
   navbar:
       left:
         - href: index.qmd
@@ -11,11 +13,14 @@ website:
           text: About
         - href: code_examples.qmd
           text: Code Examples
+        - href: blog.qmd
+          text: Blog Posts
+          
 format:
   html:
-    theme: 
-      - pulse
-    css: styles.css
+    theme:
+      - mystyles.scss
+    mainfont: Verdana
     toc: true
 
 editor: visual
