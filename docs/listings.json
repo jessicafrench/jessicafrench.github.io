@@ -1,8 +1,8 @@
 [
   {
-    "listing": "/code_examples.html",
+    "listing": "/blog.html",
     "items": [
-      "/code_examples_contents/data_viz_examples.html"
+      "/blog_posts/2022-10-24-scary-movies/index.html"
     ]
   }
 ]
