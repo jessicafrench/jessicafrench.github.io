@@ -1,0 +1,25 @@
+---
+title: "Scary Movie Reccomendations"
+description: "some not too scary movies for Halloween"
+author: 
+  - name: Jessica French 
+    url: https://jessicafrench.github.io
+    affiliation: MEDS
+    affiliation-url: https://ucsb-meds.github.io/
+date: 2022-10-24
+categories: [MEDS, Movies]
+citation: 
+  url: https://jessicafrench.github.io/blog_posts/2022-10-24-scary-movies
+bibliography: references.bib
+draft: TRUE
+---
+
+This is an example
+
+here is a citation example [@csik2022]
+
+KELP!
+
+[@arafeh-dalmau2020]
+
+[@carey2022]
