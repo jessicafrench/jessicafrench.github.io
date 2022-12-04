@@ -66,9 +66,9 @@ ul.task-list{list-style: none;}
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-date","listing-description","listing-categories"],
+      searchColumns: ["listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -128,7 +128,7 @@ ul.task-list{list-style: none;}
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="MEDS">MEDS <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Movies">Movies <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(0)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -154,63 +154,7 @@ ul.task-list{list-style: none;}
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="MEDS" data-listing-date-sort="1670054400000" data-listing-file-modified-sort="1670115777120" data-listing-reading-time-sort="0.005">
-<a href="./blog_posts/2022-12-03-intertidal-inverts-drought/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Drought Impacts on Intertidal Invertebrates on the West Coast of the United States
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('MEDS'); return false;">
-MEDS
-</div>
-</div>
-<div class="card-text listing-description">
-some not too scary movies for Halloween
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Jessica French
-</div>
-<div class="listing-date">
-Dec 3, 2022
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="MEDS,Movies" data-listing-date-sort="1666594800000" data-listing-file-modified-sort="1666714298662" data-listing-reading-time-sort="0.045">
-<a href="./blog_posts/2022-10-24-scary-movies/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Scary Movie Reccomendations
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('MEDS'); return false;">
-MEDS
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Movies'); return false;">
-Movies
-</div>
-</div>
-<div class="card-text listing-description">
-some not too scary movies for Halloween
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Jessica French
-</div>
-<div class="listing-date">
-Oct 24, 2022
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
+
 </div>
 <div class="listing-no-matching d-none">
 No matching items
