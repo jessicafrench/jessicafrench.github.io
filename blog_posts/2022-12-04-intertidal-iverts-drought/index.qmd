@@ -1,8 +1,16 @@
 ---
-title: "Impact of Drought and Sea Surface Temperature on Intertidal Motile Invertebrates"
-author: "Jessica French"
-format: html
-editor: visual
+title: "Drought and Sea Surface Temperature Impacts on Motile Invertebrates in the Rocky Intertidal"
+description: "A brief analysis that explores the potential impact of drought and sea surface temperature on abundance and diversity in the rocky intertidal zone"
+author: 
+  - name: Jessica French 
+    url: https://jessicafrench.github.io
+    affiliation: MEDS
+    affiliation-url: https://ucsb-meds.github.io/
+date: 2022-12-04
+categories: [MEDS]
+citation: 
+  url: https://jessicafrench.github.io/blog_posts/2022-12-04-intertidal-iverts-drought
+draft: False
 ---
 
 ```{r echo = FALSE, include = FALSE}
@@ -82,7 +90,7 @@ eco_site_map <-
 eco_site_map
 ```
 
-~Fig.\ 1\ Map\ showing\ the\ site\ locations\ and\ extent\ of\ the\ Coast\ Range\ Ecoregion.~
+~Fig. 1 Map showing the site locations and extent of the Coast Range Ecoregion.~
 
 # Data Description
 
@@ -136,7 +144,7 @@ axis(1)
 box(col ="black")
 ```
 
-~Fig.\ 2\ Autocorrelation\ plots\ of\ Shannon\ diversity\ index\ and\ mean\ number\ of\ organisms\ per\ plot,\ each\ lag\ represents\ one\ year.~
+~Fig. 2 Autocorrelation plots of Shannon diversity index and mean number of organisms per plot, each lag represents one year.~
 
 To account for potential differences in abundance and diversity between sites all models were fit using the `felm()` function from the `lfe` package so that the site could be held constant.
 
@@ -160,24 +168,13 @@ shannon_mod_tbl <- tbl_regression(shannon_model) |>
 shannon_mod_tbl
 ```
 
-~Table\ 1.\ Output\ of\ linear\ regression\ model\ holding\ site\ constant.~
+~Table 1. Output of linear regression model holding site constant.~
 
 The model predicted that on average no drought conditions would decrease Shannon diversity index 0.08 (p-value = 0.017) compared to drought conditions and that a one degree Celsius increase in mean sea surface temperature would decrease Shannon diversity index by 0.05 (p-value = 0.027).The model had a predicted R-squared of 0.02 indicating there is a lot of variability that is not explained by the model. Plots used in model checking (plot of residuals and Q-Q plot) can be found in the supporting figures section.
 
 # Discussion
 
-The suitability of this model to estimate the impact of drought and sea
-surface temperature on motile invertebrates in the rocky intertidal zone is
-highly suspect. The complexity of abiotic and biotic factors in the intertidal
-zone make it likely that any true impacts of drought and sea surface
-temperature are overshadowed by more pressing matters such as desiccation,
-predation, and competition ^1,5,8^. Additionally, the impacts of
-nutrient and environmental stress are most readily seen through changes in
-species range along latitudinal gradients and elevation gradients rather than
-as changes in overall abundance and diversity ^1,2,5^. A third aspect of the intertidal
-zone that this analysis ignores is differences in impacts between the high, mid,
-and lower intertidal zones. These are vastly different habitats that are
-characterized by different stressors and species composition ^5,9,10^.  
+The suitability of this model to estimate the impact of drought and sea surface temperature on motile invertebrates in the rocky intertidal zone is highly suspect. The complexity of abiotic and biotic factors in the intertidal zone make it likely that any true impacts of drought and sea surface temperature are overshadowed by more pressing matters such as desiccation, predation, and competition ^1,5,8^. Additionally, the impacts of nutrient and environmental stress are most readily seen through changes in species range along latitudinal gradients and elevation gradients rather than as changes in overall abundance and diversity ^1,2,5^. A third aspect of the intertidal zone that this analysis ignores is differences in impacts between the high, mid, and lower intertidal zones. These are vastly different habitats that are characterized by different stressors and species composition ^5,9,10^.  
 
 # Supporting Figures
 

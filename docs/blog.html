@@ -66,9 +66,9 @@ ul.task-list{list-style: none;}
     }
 
     const options = {
-      valueNames: ['listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-author','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -128,7 +128,7 @@ ul.task-list{list-style: none;}
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(0)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -154,7 +154,25 @@ ul.task-list{list-style: none;}
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1670200907817" data-listing-reading-time-sort="8.685">
+<a href="./blog_posts/2022-12-04-intertidal-iverts-drought/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Impact of Drought and Sea Surface Temperature on Intertidal Motile Invertebrates
+</h5>
+<div class="card-text listing-description">
+The rocky intertidal zone has provided a natural laboratory for studying species interactions and environmental extremes <sup>1</sup>. During high tide organisms are exposed to crashing waves and debris that can dislodge or crush them while low tide brings the risk of extreme heat and desiccation <sup>1–3</sup>. Environmental extremes are combined with limited space, predation, and competition to make for one of the most challenging habitats in the world <sup>1,2,4</sup>. The heterogeneity of the environment and complexity of species interactions make it challenging to identify the impact a single factor has on intertidal organisms <sup>5</sup>. A great deal of research has been directed at understanding the how temperature, oxygen levels, marine nutrient inputs, oceanographic conditions, and species interactions effect intertidal organisms, that has not been the case for drought <sup>5</sup>.
+</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+Jessica French
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items

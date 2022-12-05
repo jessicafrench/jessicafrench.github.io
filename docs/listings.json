@@ -7,6 +7,8 @@
   },
   {
     "listing": "/blog.html",
-    "items": []
+    "items": [
+      "/blog_posts/2022-12-04-intertidal-iverts-drought/index.html"
+    ]
   }
 ]
