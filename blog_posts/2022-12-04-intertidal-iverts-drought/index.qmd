@@ -1,0 +1,196 @@
+---
+title: "Impact of Drought and Sea Surface Temperature on Intertidal Motile Invertebrates"
+author: "Jessica French"
+format: html
+editor: visual
+---
+
+```{r echo = FALSE, include = FALSE}
+# Load packages
+library(tmap)
+library(sp)
+library(spData)
+library(sf)
+library(tidyverse)
+library(lubridate)
+library(lfe)
+library(slider)
+library(tsibble)
+library(patchwork)
+library(gtsummary)
+library(gt)
+library(sjPlot)
+```
+
+```{r echo = FALSE, include = FALSE}
+#read in data. I downloaded three csv files from MARINe: two photo plots of motile inverts and one percent cover. I went with the raw data for all files. 
+data_dir <- "/Users/jfrench/Documents/MEDS/eds-222/final_project/data"
+
+# Read in wrangled data that includes invert data with drought conditions and sst.
+invert_data <- readRDS(file.path(data_dir, "shannon_lag_sst.RDS")) |> 
+  mutate("sample_year" = as.character(sample_year)) |>
+  mutate("sample_year" = paste0(sample_year, "-01-01")) |> 
+  mutate("sample_year" = lubridate::ymd(sample_year)) |> 
+  filter(intertidal_sitename != "Cape Arago")
+```
+
+```{r echo = FALSE, include = FALSE}
+# Read in the shape file
+ecoregions_shape <- read_sf(dsn = file.path(data_dir,"/epa_ecoareas/NA_CEC_Eco_Level3.shp"),
+                      layer = "NA_CEC_Eco_Level3") |> 
+  st_transform("EPSG:4955")
+
+# Limiting to the Marine West Coast Forest Ecoregion, level 3
+# Add buffer to capture sites that are a little too far seaward to fall within the ecoregion polygon. 
+ecoregion <- ecoregions_shape |> 
+  dplyr::filter(NA_L3CODE == "7.1.8") |> 
+  st_buffer(25) |> 
+  st_transform("EPSG:4955")
+
+west_coast <- us_states |> 
+  filter(NAME %in% c("Washington", "Oregon", "California"))
+```
+
+# Introduction
+
+### Why the Rocky Intertidal Zone
+
+The rocky intertidal zone has provided a natural laboratory for studying species interactions and environmental extremes ^1^. During high tide organisms are exposed to crashing waves and debris that can dislodge or crush them while low tide brings the risk of extreme heat and desiccation ^1--3^. Environmental extremes are combined with limited space, predation, and competition to make for one of the most challenging habitats in the world ^1,2,4^. The heterogeneity of the environment and complexity of species interactions make it challenging to identify the impact a single factor has on intertidal organisms ^5^. A great deal of research has been directed at understanding the how temperature, oxygen levels, marine nutrient inputs, oceanographic conditions, and species interactions effect intertidal organisms, that has not been the case for drought ^5^.
+
+### Possible Mechanism for Drought Impacting Rocky Intertidal Invertebrates
+
+One mechanism that could result in drought impacting intertidal organisms independent of sea surface temperature or air temperature is through inputs of terrestrial organic matter (TOM). Small streams that drain directly into the ocean transport TOM in the form of leaf litter that is consumed by grazers in the intertidal ^6^. Food availability throughout the year can have major impacts on reproductive output, larvae survival, and recruitment ^6,7^. This is why I hypothesize that drought will negatively impact abundance and diversity in the rocky intertidal zone in Northern California and Southern Oregon.
+
+```{r echo = FALSE, include = FALSE}
+# set tmap to interactive
+tmap_mode(mode = "view")
+```
+
+```{r echo = FALSE}
+# Create and ecoregion and site map
+
+
+eco_site_map <- 
+  tm_shape(ecoregion) + 
+  tm_borders(col = "purple4") +
+  tm_shape(invert_data) +
+  tm_dots(col = 'intertidal_sitename', 
+          title = 'Sites', 
+          palette = "RdPu",
+          size = 0.1) 
+                
+eco_site_map
+```
+
+~Fig.\ 1\ Map\ showing\ the\ site\ locations\ and\ extent\ of\ the\ Coast\ Range\ Ecoregion.~
+
+# Data Description
+
+To test my hypothesis, I used motile invertebrate count data from Multi-Agency Rocky Intertidal Network through UC Santa Cruz and drought impact data from U.S. Drought Monitor produced by a partnership between the National Drought Mitigation Center (NDMC) at the University of Nebraska-Lincoln, the National Oceanic and Atmospheric Administration (NOAA), and the U.S. Department of Agriculture (USDA). To ensure that OLS assumptions were met prior to analysis I generated histograms of Shannon Diversity Index and mean orgnaisms per plot.
+
+```{r echo = FALSE, include = FALSE}
+# Histograms to visualize the distribution of the data
+abundance_histogram <- ggplot(invert_data, 
+                    aes(x = mean_org_per_plot)) +
+  geom_histogram(fill = "lightgray",
+                 col = "purple4") +
+  theme_classic() +
+  xlab("Mean Organisms per Plot")
+
+shannon_histogram <- ggplot(invert_data, 
+                    aes(x = shannon_index)) +
+  geom_histogram(fill = "lightgray",
+                 col = "purple4") +
+  theme_classic() +
+  xlab("Shannon Diversity Index")
+
+histograms <- abundance_histogram + shannon_histogram
+```
+
+```{r echo = FALSE, warning=FALSE, message=FALSE}
+histograms + plot_annotation(title = 'Histograms Showing Data Distribution')
+```
+
+The motile invertebrate count data was the result of long-term monitoring efforts from multiple agencies and includes counts of species from 1999 to 2019 at intertidal sites along the West Coast of The United States. Observations were made in summer (June-September), fall (October-January), or spring (February-May). For this analysis, only observations from spring and fall were considered in an attempt to limit the affect of extreme heat as a confounding variable. Only motile invertebrates were considered for the same reason. To ensure similarity in climate and broad scale ecological factors sites were filtered to the Coast Range level III ecoregion defined by the EPA. I applied to 25 meter buffer to the ecoregion to correct discrepancies between site location and the coastline.
+
+The drought impact data consists of polygons indicating the level of drought impact in that area. Drought impact levels are determined from a range of drought indexes and range from D0-Abnormally dry to D4-Exceptional drought. More information about how the levels are determined can be found on their website. Drought condition for each observation was determined by finding the drought polygons that each site fell into geographically and which polygons temporally overlapped with the observation. Because the temporal resolution of the invertebrate counts is three months each observation potentially fell into multiple polygons, the most severe drought condition was chosen as the drought condition for the observation. I condensed the drought impact variable into a binary variable where any drought impacts (unusually dry to severe drought) were classified as drought and no drought impacts were classified as no drought.
+
+# Analysis
+
+To determine if drought has an impact on the abundance of motile intertidal invertebrates I combined the drought impact data with the motile invertebrate count data, as described above, and summed the mean number of invertebrates per plot for each site and year. I also calculated the Shannon diversity index at each site for each year. I created autocorrelation plots to determine if there was a correlation between Shannon Diversity Index or mean number of organisms per plot in one year and the following year (Fig. 2). This showed a slight correlation between mean organisms per plot at year 1 and year 2 and a correlation.
+
+```{r echo = FALSE}
+
+par(mfrow=c(1,2))
+# autocorrelation plot 
+abundance_acf <- acf(invert_data$mean_org_per_plot, 
+                     lag.max = 18, 
+                     main = "Abundance")
+
+shannon_acf <- acf(invert_data$shannon_index, 
+                   lag.max = 18, 
+                   main = "Shannon Index",
+                   axes = FALSE,
+                   ylab = "") 
+axis(1)
+box(col ="black")
+```
+
+~Fig.\ 2\ Autocorrelation\ plots\ of\ Shannon\ diversity\ index\ and\ mean\ number\ of\ organisms\ per\ plot,\ each\ lag\ represents\ one\ year.~
+
+To account for potential differences in abundance and diversity between sites all models were fit using the `felm()` function from the `lfe` package so that the site could be held constant.
+
+I regressed the simplified drought variable on abundance and Shannon diversity index with mean sea surface temperature as an additional predictive variable. I ran a second set of regression models where drought condition in the current year was replaced by drought condition in the year prior.
+
+# Results
+
+Drought in the previous year was not a significant predictor of Shannon diversity index or mean number of organisms per plot. Drought in the current year was also not a significant predictor of mean organisms per plot. Drought in the current year was a significant predcator of Shannon diversity index (p-value = 0.017, Table 1). In this same model mean sea surface temperature was also a significant predictor of Shannon diversity index (p-value = 0.027). Neither explanatory variable was significant in any of the other models.
+
+```{r echo=FALSE}
+shannon_model <- felm(shannon_index~ drought_simple + sst_mean| intertidal_sitename , data = invert_data)
+```
+
+```{r echo=FALSE}
+# set up table for shannnon mod
+shannon_mod_tbl <- tbl_regression(shannon_model) |> 
+  modify_caption("Drought condition and mean sea surface temperature regressed on Shannon Diversity index") |> 
+  as_gt() |> 
+  gt::tab_footnote("model p-value = 0.018, adjusted R-squared 0.02")
+# show table
+shannon_mod_tbl
+```
+
+~Table\ 1.\ Output\ of\ linear\ regression\ model\ holding\ site\ constant.~
+
+The model predicted that on average no drought conditions would decrease Shannon diversity index 0.08 (p-value = 0.017) compared to drought conditions and that a one degree Celsius increase in mean sea surface temperature would decrease Shannon diversity index by 0.05 (p-value = 0.027).The model had a predicted R-squared of 0.02 indicating there is a lot of variability that is not explained by the model. Plots used in model checking (plot of residuals and Q-Q plot) can be found in the supporting figures section.
+
+# Discussion
+
+The suitability of this model to estimate the impact of drought and sea
+surface temperature on motile invertebrates in the rocky intertidal zone is
+highly suspect. The complexity of abiotic and biotic factors in the intertidal
+zone make it likely that any true impacts of drought and sea surface
+temperature are overshadowed by more pressing matters such as desiccation,
+predation, and competition ^1,5,8^. Additionally, the impacts of
+nutrient and environmental stress are most readily seen through changes in
+species range along latitudinal gradients and elevation gradients rather than
+as changes in overall abundance and diversity ^1,2,5^. A third aspect of the intertidal
+zone that this analysis ignores is differences in impacts between the high, mid,
+and lower intertidal zones. These are vastly different habitats that are
+characterized by different stressors and species composition ^5,9,10^.  
+
+# Supporting Figures
+
+```{r echo=FALSE}
+par(mfrow=c(1,2))
+plot(fitted(shannon_model),
+     residuals(shannon_model), 
+     xlab = "Predicted Shannon Diversity Index",
+     ylab = "Residuals")
+title(main = "Residuals Plot")
+abline(h=0)
+qqnorm(residuals(shannon_model))
+qqline(residuals(shannon_model))
+```
+
+# References
