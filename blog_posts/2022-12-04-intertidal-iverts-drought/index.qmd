@@ -28,6 +28,7 @@ library(patchwork)
 library(gtsummary)
 library(gt)
 library(sjPlot)
+library(knitr)
 ```
 
 ```{r echo = FALSE, include = FALSE}
@@ -67,7 +68,7 @@ The rocky intertidal zone has provided a natural laboratory for studying species
 
 ### Possible Mechanism for Drought Impacting Rocky Intertidal Invertebrates
 
-One mechanism that could result in drought impacting intertidal organisms independent of sea surface temperature or air temperature is through inputs of terrestrial organic matter (TOM). Small streams that drain directly into the ocean transport TOM in the form of leaf litter that is consumed by grazers in the intertidal ^6^. Food availability throughout the year can have major impacts on reproductive output, larvae survival, and recruitment ^6,7^. This is why I hypothesize that drought will negatively impact abundance and diversity in the rocky intertidal zone in Northern California and Southern Oregon.
+One mechanism that could result in drought impacting intertidal organisms independent of sea surface temperature or air temperature is through inputs of terrestrial organic matter (TOM). Small streams that drain directly into the ocean transport TOM in the form of leaf litter that is consumed by grazers in the intertidal ^6^. Food availability throughout the year can have major impacts on reproductive output, larvae survival, and recruitment ^6,7^. This is why I hypothesize that drought will negatively impact abundance and diversity in the rocky intertidal zone in the Coast Range Ecoregion in California.
 
 ```{r echo = FALSE, include = FALSE}
 # set tmap to interactive
@@ -94,7 +95,7 @@ eco_site_map
 
 # Data Description
 
-To test my hypothesis, I used motile invertebrate count data from Multi-Agency Rocky Intertidal Network through UC Santa Cruz and drought impact data from U.S. Drought Monitor produced by a partnership between the National Drought Mitigation Center (NDMC) at the University of Nebraska-Lincoln, the National Oceanic and Atmospheric Administration (NOAA), and the U.S. Department of Agriculture (USDA). To ensure that OLS assumptions were met prior to analysis I generated histograms of Shannon Diversity Index and mean orgnaisms per plot.
+To test my hypothesis, I used motile invertebrate count data from Multi-Agency Rocky Intertidal Network through UC Santa Cruz and drought impact data from U.S. Drought Monitor produced by a partnership between the National Drought Mitigation Center (NDMC) at the University of Nebraska-Lincoln, the National Oceanic and Atmospheric Administration (NOAA), and the U.S. Department of Agriculture (USDA) ^8^.
 
 ```{r echo = FALSE, include = FALSE}
 # Histograms to visualize the distribution of the data
@@ -115,11 +116,7 @@ shannon_histogram <- ggplot(invert_data,
 histograms <- abundance_histogram + shannon_histogram
 ```
 
-```{r echo = FALSE, warning=FALSE, message=FALSE}
-histograms + plot_annotation(title = 'Histograms Showing Data Distribution')
-```
-
-The motile invertebrate count data was the result of long-term monitoring efforts from multiple agencies and includes counts of species from 1999 to 2019 at intertidal sites along the West Coast of The United States. Observations were made in summer (June-September), fall (October-January), or spring (February-May). For this analysis, only observations from spring and fall were considered in an attempt to limit the affect of extreme heat as a confounding variable. Only motile invertebrates were considered for the same reason. To ensure similarity in climate and broad scale ecological factors sites were filtered to the Coast Range level III ecoregion defined by the EPA. I applied to 25 meter buffer to the ecoregion to correct discrepancies between site location and the coastline.
+The motile invertebrate count data was the result of long-term monitoring efforts from multiple agencies and includes counts of species from 1999 to 2019 at intertidal sites along the West Coast of The United States ^9^. Observations were made in summer (June-September), fall (October-January), or spring (February-May) ^10^. For this analysis, only observations from spring and fall were considered in an attempt to limit the affect of extreme heat as a confounding variable. Only motile invertebrates were considered for the same reason. To ensure similarity in climate and broad scale ecological factors sites were filtered to the Coast Range level III ecoregion defined by the EPA ^11^. I applied to 25 meter buffer to the ecoregion to correct discrepancies between site location and the coastline.
 
 The drought impact data consists of polygons indicating the level of drought impact in that area. Drought impact levels are determined from a range of drought indexes and range from D0-Abnormally dry to D4-Exceptional drought. More information about how the levels are determined can be found on their website. Drought condition for each observation was determined by finding the drought polygons that each site fell into geographically and which polygons temporally overlapped with the observation. Because the temporal resolution of the invertebrate counts is three months each observation potentially fell into multiple polygons, the most severe drought condition was chosen as the drought condition for the observation. I condensed the drought impact variable into a binary variable where any drought impacts (unusually dry to severe drought) were classified as drought and no drought impacts were classified as no drought.
 
@@ -152,7 +149,23 @@ I regressed the simplified drought variable on abundance and Shannon diversity i
 
 # Results
 
-Drought in the previous year was not a significant predictor of Shannon diversity index or mean number of organisms per plot. Drought in the current year was also not a significant predictor of mean organisms per plot. Drought in the current year was a significant predcator of Shannon diversity index (p-value = 0.017, Table 1). In this same model mean sea surface temperature was also a significant predictor of Shannon diversity index (p-value = 0.027). Neither explanatory variable was significant in any of the other models.
+Drought in the previous year was not a significant predictor of Shannon diversity index or mean number of organisms per plot. Drought in the current year was also not a significant predictor of mean organisms per plot. Drought in the current year was a significant predictor of Shannon diversity index (p-value = 0.017, Table 1). A plot of the distribution of Shannon diversity index and SST with drought condition labeled is shown in figure 3. In this same model mean sea surface temperature was also a significant predictor of Shannon diversity index (p-value = 0.027). Neither explanatory variable was significant in any of the other models.
+
+```{r echo=FALSE}
+ggplot(data = invert_data, 
+       aes(x = sst_mean, 
+           y = shannon_index,)) +
+  geom_point(aes(col = drought_simple)) +
+  labs(x = "SST Mean",
+       y = "Shannon Diversity Index",
+       title = "Distribution of Data") +
+  scale_color_manual(values = c(drought = "lightgray", no_drought = "purple4"),
+                     labels = c("Drought", "No Drought"),
+                     name = "Drought Condition") +
+  theme_minimal()
+```
+
+~Fig.\ 3\ Plot\ of\ Shannon\ diversity\ index\ and\ SST\ with\ current\ year\ drought\ condition\ labeled.~
 
 ```{r echo=FALSE}
 shannon_model <- felm(shannon_index~ drought_simple + sst_mean| intertidal_sitename , data = invert_data)
@@ -170,13 +183,23 @@ shannon_mod_tbl
 
 ~Table 1. Output of linear regression model holding site constant.~
 
-The model predicted that on average no drought conditions would decrease Shannon diversity index 0.08 (p-value = 0.017) compared to drought conditions and that a one degree Celsius increase in mean sea surface temperature would decrease Shannon diversity index by 0.05 (p-value = 0.027).The model had a predicted R-squared of 0.02 indicating there is a lot of variability that is not explained by the model. Plots used in model checking (plot of residuals and Q-Q plot) can be found in the supporting figures section.
+The model predicted that on average no drought conditions would decrease Shannon diversity index 0.08 (p-value = 0.017) compared to drought conditions and that a one degree Celsius increase in mean sea surface temperature would decrease Shannon diversity index by 0.05 (p-value = 0.027).The model had a predicted R-squared of 0.02 indicating there is a lot of variability that is not explained by the model. Plots used in model checking (plot of residuals and Q-Q plot) can be found in the supporting figures section (S. Fig. 1 and S. Fig. 2).
 
 # Discussion
 
-The suitability of this model to estimate the impact of drought and sea surface temperature on motile invertebrates in the rocky intertidal zone is highly suspect. The complexity of abiotic and biotic factors in the intertidal zone make it likely that any true impacts of drought and sea surface temperature are overshadowed by more pressing matters such as desiccation, predation, and competition ^1,5,8^. Additionally, the impacts of nutrient and environmental stress are most readily seen through changes in species range along latitudinal gradients and elevation gradients rather than as changes in overall abundance and diversity ^1,2,5^. A third aspect of the intertidal zone that this analysis ignores is differences in impacts between the high, mid, and lower intertidal zones. These are vastly different habitats that are characterized by different stressors and species composition ^5,9,10^.  
+The suitability of this model to estimate the impact of drought and sea surface temperature on motile invertebrates in the rocky intertidal zone is highly suspect. The extremely small sample size spread across six sites brings the significance of any results into question (S. Table 1). The sample size for each can be found in the supporting figures section. The complexity of abiotic and biotic factors in the intertidal zone make it likely that any true impacts of drought and sea surface temperature are overshadowed by more pressing matters such as desiccation, predation, and competition ^1,5,12^.
 
-# Supporting Figures
+Additionally, the impacts of nutrient and environmental stress are most readily seen through changes in species range along latitudinal gradients and elevation gradients rather than as changes in overall abundance and diversity ^1,2,5^. Another aspect of the intertidal zone that this analysis ignores is differences in impacts between the high, mid, and lower intertidal zones. These are vastly different habitats that are characterized by different stressors and species composition and it is unlikely that drought and sea surface temperature would have the same impact in all three zones ^5,13,14^.  
+
+Along with the model lacking the complexity to accurately describe drought and sea surface temperatures impacts on motile intertidal invertebrates, the decision I made to exclude observations from summer reduced the sample size and likely obscured trends in the data. Sites in Oregon and Washington only collect data in the summer months and excluding summer observations also excluded them from the analysis.
+
+Future research into this subject should incorporate more factors that can impact invertebrates in the intertidal zone. Additionally, including on a broader range of outcome variables such as invertebrate size, recruitment success, and range changes could reveal a relationship that was not seen here. Lastly, then scale of this analysis was too broad to elucidate small scale changes within each site and further work could reduce the scale and focus on changes with each site.
+
+## Data Use Statements
+
+This study utilized data collected by the Multi-Agency Rocky Intertidal Network (MARINe): a long-term ecological consortium funded and supported by many groups. Please visit pacificrockyintertidal.org for a complete list of the MARINe partners responsible for monitoring and funding these data. Data management has been primarily supported by BOEM (Bureau of Ocean Energy Management), NPS (National Parks Service), The David & Lucile Packard Foundation, and United States Navy.
+
+## Supporting Figures
 
 ```{r echo=FALSE}
 par(mfrow=c(1,2))
@@ -190,4 +213,53 @@ qqnorm(residuals(shannon_model))
 qqline(residuals(shannon_model))
 ```
 
-# References
+~S. Fig. 1~
+
+```{r echo = FALSE, warning=FALSE, message=FALSE}
+histograms + plot_annotation(title = 'Histograms Showing Data Distribution')
+```
+
+~S. Fig. 2~
+
+```{r echo=FALSE}
+# create data summary table
+
+data_summary_table <- table(invert_data$intertidal_sitename, 
+                            invert_data$drought_simple) 
+
+kable(data_summary_table,
+      col.names = c("Drought", "No Drought"),
+      caption = "Sample size by site and drought condition.")
+```
+
+~S. Table. 1~
+
+## References
+
+1\. Connell JH. The influence of interspecific competition and other factors on the distribution of the barnacle *Chthamalus stellatus*. Ecology (Durham). 1961;42(4):710--723. doi:10.2307/1933500
+
+2\. Paine RT. Marine rocky shores and community ecology: an experimentalist's perspective. Oldendorf/Luhe, Germany: Ecology Institute; 1994. (Excellence in ecology, 4).
+
+3\. Denny M, Wethey D. Physical processes that generate patterns in marine communities \| Denny Lab. 2001 \[accessed 2022 Dec 2\]. https://dennylab.stanford.edu/publications/physical-processes-generate-patterns-marine-communities
+
+4\. Tomanek L, Helmuth B. Physiological ecology of rocky intertidal organisms: a synergy of concepts. Integrative and Comparative Biology. 2002;42(4):771--775. doi:10.1093/icb/42.4.771
+
+5\. Helmuth B, Mieszkowska N, Moore P, Hawkins SJ. Living on the edge of two changing worlds: forecasting the responses of rocky intertidal ecosystems to climate change. Annual Review of Ecology, Evolution, and Systematics. 2006;37:373--404.
+
+6\. Fairbanks J, McArthur JV, Young CM, Rader RB. Consumption of terrestrial organic matter in the rocky intertidal zone along the central Oregon coast. Ecosphere. 2018 \[accessed 2022 Nov 7\];9(3). https://www.osti.gov/pages/biblio/1423921. doi:10.1002/ecs2.2138
+
+7\. Kautsky N. Quantitative studies on gonad cycle, fecundity, reproductive output and recruitment in a baltic *Mytilus edulis* population. Marine Biology. 1982;68(2):143--160. doi:10.1007/BF00397601
+
+8\. National Drought Mitigation Center (NDMC), the U.S. Department of Agriculture (USDA), the National Oceanic and Atmospheric Administration (NOAA). GIS Data \| U.S. Drought Monitor. \[accessed 2022 Dec 5\]. https://droughtmonitor.unl.edu/DmData/GISData.aspx
+
+9\. Explore the Data \| MARINe. MARINe \| Multi-Agency Rocky Intertidal Network. \[accessed 2022 Dec 5\]. https://marine.ucsc.edu/explore-the-data/index.html
+
+10\. Engle JM, Anderson L, Burnaford JL, Douglas M, Lohse DP, Parsons-Field A. Unified monitoring protocols for the multi- agency rocky intertidal network. 2022. https://marine.ucsc.edu/longtermprotocol.pdf
+
+11\. US EPA. Ecoregions of North America. 2015 Nov 25 \[accessed 2022 Dec 5\]. https://www.epa.gov/eco-research/ecoregions-north-america
+
+12\. Menge BA, Lubchenco J, Bracken MES, Chan F, Foley MM, Freidenburg TL, Gaines SD, Hudson G, Krenz C, Leslie H, et al. Coastal oceanography sets the pace of rocky intertidal community dynamics. Proceedings of the National Academy of Sciences. 2003;100(21):12229--12234. doi:10.1073/pnas.1534875100
+
+13\. Bennett I, Pope EC. Intertidal zonation of the exposed rocky shores of Tasmania and its relationship with the rest of Australia. Marine and Freshwater Research. 1960;11(2):182--221. doi:10.1071/mf9600182
+
+14\. Foster BA. Desiccation as a factor in the intertidal zonation of barnacles. Marine Biology. 1971;8(1):12--29. doi:10.1007/BF00349341
