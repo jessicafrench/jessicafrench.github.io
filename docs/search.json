@@ -2,21 +2,21 @@
   {
     "objectID": "blog_posts/2022-12-04-intertidal-iverts-drought/index.html",
     "href": "blog_posts/2022-12-04-intertidal-iverts-drought/index.html",
-    "title": "Drought and Sea Surface Temperature Impacts on Motile Invertebrates in the Rocky Intertidal",
+    "title": "Drought Impacts on Motile Invertebrates in the Rocky Intertidal",
     "section": "",
-    "text": "Code\n# Load packages\nlibrary(tmap)\nlibrary(sp)\nlibrary(spData)\nlibrary(sf)\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(lfe)\nlibrary(slider)\nlibrary(tsibble)\nlibrary(patchwork)\nlibrary(gtsummary)\nlibrary(gt)\nlibrary(sjPlot)\nlibrary(knitr)"
+    "text": "Code\n# Load packages\nlibrary(tmap)\nlibrary(sp)\nlibrary(spData)\nlibrary(sf)\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(lfe)\nlibrary(patchwork)\nlibrary(gtsummary)\nlibrary(gt)\nlibrary(sjPlot)\nlibrary(knitr)"
   },
   {
     "objectID": "blog_posts/2022-12-04-intertidal-iverts-drought/index.html#supporting-figures",
     "href": "blog_posts/2022-12-04-intertidal-iverts-drought/index.html#supporting-figures",
-    "title": "Drought and Sea Surface Temperature Impacts on Motile Invertebrates in the Rocky Intertidal",
+    "title": "Drought Impacts on Motile Invertebrates in the Rocky Intertidal",
     "section": "Supporting Figures",
     "text": "Supporting Figures\n\n\nCode\n# Model checking shannon no lag model\npar(mfrow=c(1,2))\nplot(fitted(shannon_model),\n     residuals(shannon_model), \n     xlab = \"Predicted Shannon Diversity Index\",\n     ylab = \"Residuals\")\ntitle(main = \"Residuals Plot\")\nabline(h=0)\nmtext(\"S. Fig. 1\", \n      side = 1, \n      adj = 0,\n      line = 4)\nqqnorm(residuals(shannon_model))\nqqline(residuals(shannon_model))\n\n\n\n\n\n\n\nCode\n# Histograms to visualize the distribution of the data\nabundance_histogram <- ggplot(invert_data, \n                    aes(x = mean_org_per_plot)) +\n  geom_histogram(fill = \"lightgray\",\n                 col = \"purple4\") +\n  theme_classic() +\n  xlab(\"Mean Organisms per Plot\")\n\nshannon_histogram <- ggplot(invert_data, \n                    aes(x = shannon_index)) +\n  geom_histogram(fill = \"lightgray\",\n                 col = \"purple4\") +\n  theme_classic() +\n  xlab(\"Shannon Diversity Index\")\n\nhistograms <- abundance_histogram + shannon_histogram\n\n\n\n\nCode\nhistograms + plot_annotation(title = 'Histograms Showing Data Distribution')\n\n\n\n\n\nS. Fig. 2\n\n\nCode\n# create data summary table\n\ndata_summary_table <- table(invert_data$intertidal_sitename, \n                            invert_data$drought_simple) \n\nkable(data_summary_table,\n      col.names = c(\"Drought\", \"No Drought\"),\n      caption = \"Sample size by site and drought condition.\")\n\n\n\nSample size by site and drought condition.\n\n\n\nDrought\nNo Drought\n\n\n\n\nDamnation Creek\n3\n7\n\n\nDavenport Landing\n1\n1\n\n\nEnderts\n4\n7\n\n\nFalse Klamath Cove\n4\n7\n\n\nSandhill Bluff\n6\n13\n\n\nScott Creek\n6\n13\n\n\n\n\n\nS. Table. 1"
   },
   {
     "objectID": "blog_posts/2022-12-04-intertidal-iverts-drought/index.html#references",
     "href": "blog_posts/2022-12-04-intertidal-iverts-drought/index.html#references",
-    "title": "Drought and Sea Surface Temperature Impacts on Motile Invertebrates in the Rocky Intertidal",
+    "title": "Drought Impacts on Motile Invertebrates in the Rocky Intertidal",
     "section": "References",
     "text": "References\n1. Connell JH. The influence of interspecific competition and other factors on the distribution of the barnacle Chthamalus stellatus. Ecology (Durham). 1961;42(4):710–723. doi:10.2307/1933500\n2. Paine RT. Marine rocky shores and community ecology: an experimentalist's perspective. Oldendorf/Luhe, Germany: Ecology Institute; 1994. (Excellence in ecology, 4).\n3. Tomanek L, Helmuth B. Physiological ecology of rocky intertidal organisms: a synergy of concepts. Integrative and Comparative Biology. 2002;42(4):771–775. doi:10.1093/icb/42.4.771\n4. Denny M, Wethey D. Physical processes that generate patterns in marine communities | Denny Lab. 2001 [accessed 2022 Dec 2]. https://dennylab.stanford.edu/publications/physical-processes-generate patterns-marine-communities\n5. Foster BA. Desiccation as a factor in the intertidal zonation of barnacles. Marine Biology. 1971;8(1):12–29. doi:10.1007/BF00349341\n6. Menge BA, Lubchenco J, Bracken MES, Chan F, Foley MM, Freidenburg TL, Gaines SD, Hudson G, Krenz C, Leslie H, et al. Coastal oceanography sets the pace of rocky intertidal community dynamics. Proceedings of the National Academy of Sciences. 2003;100(21):12229–12234. doi:10.1073/pnas.1534875100\n7. Helmuth B, Mieszkowska N, Moore P, Hawkins SJ. Living on the edge of two changing worlds: forecasting the responses of rocky intertidal ecosystems to climate change. Annual Review of Ecology, Evolution, and Systematics. 2006;37:373–404.\n8. Cook BI, Mankin JS, Anchukaitis KJ. Climate change and drought: from past to future. Current Climate Change Reports. 2018;4(2):164–179. doi:10.1007/s40641-018-0093-2\n9. Aspin TWH, Hart K, Khamis K, Milner AM, O'Callaghan MJ, Trimmer M, Wang Z, Williams GMD, Woodward G, Ledger ME. Drought intensification alters the composition, body size, and trophic structure of invertebrate assemblages in a stream mesocosm experiment. Freshwater Biology. 2019;64(4):750–760. doi:10.1111/fwb.13259\n10. Fairbanks J, McArthur JV, Young CM, Rader RB. Consumption of terrestrial organic matter in the rocky intertidal zone along the central Oregon coast. Ecosphere. 2018 [accessed 2022 Nov 7];9(3). https://www.osti.gov/pages/biblio/1423921. doi:10.1002/ecs2.2138\n11. Kautsky N. Quantitative studies on gonad cycle, fecundity, reproductive output and recruitment in a baltic Mytilus edulis population. Marine Biology. 1982;68(2):143–160. doi:10.1007/BF00397601\n12. National Drought Mitigation Center (NDMC), the U.S. Department of Agriculture (USDA), the National Oceanic and Atmospheric Administration (NOAA). GIS Data | U.S. Drought Monitor. [accessed 2022 Dec 5]. https://droughtmonitor.unl.edu/DmData/GISData.aspx\n13. Explore the Data | MARINe. MARINe | Multi-Agency Rocky Intertidal Network. [accessed 2022 Dec 5]. https://marine.ucsc.edu/explore-the-data/index.html\n14. Engle JM, Anderson L, Burnaford JL, Douglas M, Lohse DP, Parsons-Field A. Unified monitoring protocols for the multi- agency rocky intertidal network. 2022. https://marine.ucsc.edu/longtermprotocol.pdf\n15. US EPA. Ecoregions of North America. 2015 Nov 25 [accessed 2022 Dec 5]. https://www.epa.gov/eco-research/ecoregions-north-america\n16. Bennett I, Pope EC. Intertidal zonation of the exposed rocky shores of Tasmania and its relationship with the rest of Australia. Marine and Freshwater Research. 1960;11(2):182–221. doi:10.1071/mf9600182"
   },
@@ -58,14 +58,14 @@
   {
     "objectID": "blog_posts/2022-12-04-intertidal-iverts-drought/index.html#data-use-statements",
     "href": "blog_posts/2022-12-04-intertidal-iverts-drought/index.html#data-use-statements",
-    "title": "Drought and Sea Surface Temperature Impacts on Motile Invertebrates in the Rocky Intertidal",
+    "title": "Drought Impacts on Motile Invertebrates in the Rocky Intertidal",
     "section": "Data Use Statements",
     "text": "Data Use Statements\nThis study utilized data collected by the Multi-Agency Rocky Intertidal Network (MARINe): a long-term ecological consortium funded and supported by many groups. Please visit pacificrockyintertidal.org for a complete list of the MARINe partners responsible for monitoring and funding these data. Data management has been primarily supported by BOEM (Bureau of Ocean Energy Management), NPS (National Parks Service), The David & Lucile Packard Foundation, and United States Navy."
   },
   {
     "objectID": "blog_posts/2022-12-04-intertidal-iverts-drought/index.html#note",
     "href": "blog_posts/2022-12-04-intertidal-iverts-drought/index.html#note",
-    "title": "Drought and Sea Surface Temperature Impacts on Motile Invertebrates in the Rocky Intertidal",
+    "title": "Drought Impacts on Motile Invertebrates in the Rocky Intertidal",
     "section": "Note",
     "text": "Note\nFor more information on how the data were wrangled and all code used in this project please visit https://github.com/jessicafrench/Drought-impact-on-rocky-intertidal-invertebrates"
   }
