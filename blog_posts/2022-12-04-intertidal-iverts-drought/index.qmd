@@ -10,7 +10,7 @@ date: 2022-12-07
 categories: [MEDS]
 citation: 
   url: https://jessicafrench.github.io/2022-12-04-intertidal-iverts-drought/
-image: img_5145.PNG
+image: IMG_5145.PNG
 format: 
   html:
     code-fold: true 
