@@ -20,7 +20,7 @@ draft: FALSE
 
 The cartography package can be used with base r `plot` to add map elements and improve the legibility of your maps. Hatching can be an effective way to visualize a map feature but can be a little complicated to add. In this example we will use US States data from the `spData` package and the `cartography` package to show how you can add hatching to a map.
 
-```{r}
+```{r message=FALSE}
 # spData makes the us_states data frame available. 
 library(spData)
 # sf is needed to read the geometry in the us_states data frame which is an sf object. 
