@@ -1,0 +1,66 @@
+---
+title: "Basic ggplot2 Example"
+description: "A short tutorial on how to use ggplot2 to visualize data."
+author: 
+  - name: Jessica French 
+    url: https://jessicafrench.github.io
+    affiliation: MEDS
+    affiliation-url: https://ucsb-meds.github.io/
+date: 2022-12-21
+categories: [MEDS, data visualization]
+citation: 
+  url: https://jessicafrench.github.io/code_examples/2022-12-21-ggplot-example
+image: ggplot2.png
+draft: FALSE
+---
+
+```{r message = FALSE}
+library(tidyverse)
+library(palmerpenguins)
+```
+
+![](preview_images/ggplot2.png){fig-align="center" width="224"}
+
+### A basic scatter plot
+
+```{r}
+example_plot <- ggplot(data = penguins, 
+                       aes(x = bill_depth_mm,
+                           y = bill_length_mm)) +
+  geom_point()
+
+example_plot
+```
+
+Lets spice this up a bit by having each penguin species show up as a different color and adding a theme.
+
+### Mapping aesthetics
+
+reminder: when changing something on the graph based on a variable, like point color below, it needs to go inside the function `aes()`.
+
+```{r}
+example_plot <- ggplot(data = penguins, 
+                       aes(x = bill_depth_mm,
+                           y = bill_length_mm)) +
+  geom_point(aes(color = species)) +
+  theme_light()
+
+example_plot
+```
+
+This is looking good but we can do better. Lets update the axis titles and give our graph a title.
+
+### Axis labels and titles
+
+```{r}
+example_plot <- ggplot(data = penguins, 
+                       aes(x = bill_depth_mm,
+                           y = bill_length_mm)) +
+  geom_point(aes(color = species)) +
+  theme_light() +
+  labs(x = "Bill Depth (mm)",
+       y = "Bill Length (mm)",
+       title = "Penguin Bill Depth Compared to Bill Length")
+
+example_plot
+```
