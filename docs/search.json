@@ -35,32 +35,11 @@
     "text": "References\n1. Connell JH. The influence of interspecific competition and other factors on the distribution of the barnacle Chthamalus stellatus. Ecology (Durham). 1961;42(4):710–723. doi:10.2307/1933500\n2. Paine RT. Marine rocky shores and community ecology: an experimentalist's perspective. Oldendorf/Luhe, Germany: Ecology Institute; 1994. (Excellence in ecology, 4).\n3. Tomanek L, Helmuth B. Physiological ecology of rocky intertidal organisms: a synergy of concepts. Integrative and Comparative Biology. 2002;42(4):771–775. doi:10.1093/icb/42.4.771\n4. Denny M, Wethey D. Physical processes that generate patterns in marine communities | Denny Lab. 2001 [accessed 2022 Dec 2]. https://dennylab.stanford.edu/publications/physical-processes-generate patterns-marine-communities\n5. Foster BA. Desiccation as a factor in the intertidal zonation of barnacles. Marine Biology. 1971;8(1):12–29. doi:10.1007/BF00349341\n6. Menge BA, Lubchenco J, Bracken MES, Chan F, Foley MM, Freidenburg TL, Gaines SD, Hudson G, Krenz C, Leslie H, et al. Coastal oceanography sets the pace of rocky intertidal community dynamics. Proceedings of the National Academy of Sciences. 2003;100(21):12229–12234. doi:10.1073/pnas.1534875100\n7. Helmuth B, Mieszkowska N, Moore P, Hawkins SJ. Living on the edge of two changing worlds: forecasting the responses of rocky intertidal ecosystems to climate change. Annual Review of Ecology, Evolution, and Systematics. 2006;37:373–404.\n8. Cook BI, Mankin JS, Anchukaitis KJ. Climate change and drought: from past to future. Current Climate Change Reports. 2018;4(2):164–179. doi:10.1007/s40641-018-0093-2\n9. Aspin TWH, Hart K, Khamis K, Milner AM, O'Callaghan MJ, Trimmer M, Wang Z, Williams GMD, Woodward G, Ledger ME. Drought intensification alters the composition, body size, and trophic structure of invertebrate assemblages in a stream mesocosm experiment. Freshwater Biology. 2019;64(4):750–760. doi:10.1111/fwb.13259\n10. Fairbanks J, McArthur JV, Young CM, Rader RB. Consumption of terrestrial organic matter in the rocky intertidal zone along the central Oregon coast. Ecosphere. 2018 [accessed 2022 Nov 7];9(3). https://www.osti.gov/pages/biblio/1423921. doi:10.1002/ecs2.2138\n11. Kautsky N. Quantitative studies on gonad cycle, fecundity, reproductive output and recruitment in a baltic Mytilus edulis population. Marine Biology. 1982;68(2):143–160. doi:10.1007/BF00397601\n12. National Drought Mitigation Center (NDMC), the U.S. Department of Agriculture (USDA), the National Oceanic and Atmospheric Administration (NOAA). GIS Data | U.S. Drought Monitor. [accessed 2022 Dec 5]. https://droughtmonitor.unl.edu/DmData/GISData.aspx\n13. Explore the Data | MARINe. MARINe | Multi-Agency Rocky Intertidal Network. [accessed 2022 Dec 5]. https://marine.ucsc.edu/explore-the-data/index.html\n14. Engle JM, Anderson L, Burnaford JL, Douglas M, Lohse DP, Parsons-Field A. Unified monitoring protocols for the multi- agency rocky intertidal network. 2022. https://marine.ucsc.edu/longtermprotocol.pdf\n15. US EPA. Ecoregions of North America. 2015 Nov 25 [accessed 2022 Dec 5]. https://www.epa.gov/eco-research/ecoregions-north-america\n16. Bennett I, Pope EC. Intertidal zonation of the exposed rocky shores of Tasmania and its relationship with the rest of Australia. Marine and Freshwater Research. 1960;11(2):182–221. doi:10.1071/mf9600182"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Experience\n\n\nPersonal"
-  },
-  {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "Blog Posts",
-    "section": "",
-    "text": "MEDS\n\n\n\nA brief analysis that explores the potential impact of drought and sea surface temperature on abundance and diversity in the rocky intertidal zone\n\n\n\nJessica French\n\n\nDec 7, 2022\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "code_examples.html",
     "href": "code_examples.html",
     "title": "Code Examples",
     "section": "",
     "text": "MEDS\n\n\ndata visualization\n\n\n\nA short tutorial on how to use ggplot2 to visualize data.\n\n\n\nJessica French\n\n\nDec 21, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMEDS\n\n\ndata visualization\n\n\n\nA brief example showing how to use cartography to add a hatched layer to a map.\n\n\n\nJessica French\n\n\nDec 20, 2022\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "code_examples_contents/2022-12-20-cartography-example/index.html",
-    "href": "code_examples_contents/2022-12-20-cartography-example/index.html",
-    "title": "Cartography Example",
-    "section": "",
-    "text": "CitationBibTeX citation:@online{french2022,\n  author = {Jessica French},\n  title = {Cartography {Example}},\n  date = {2022-12-20},\n  url = {https://jessicafrench.github.io/code_examples/2022-12-20-cartography-example},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nJessica French. 2022. “Cartography Example.” December 20,\n2022. https://jessicafrench.github.io/code_examples/2022-12-20-cartography-example."
   },
   {
     "objectID": "code_examples_contents/2022-12-21-ggplot-example/index.html",
@@ -75,5 +54,26 @@
     "title": "Cartography Example",
     "section": "Introduction",
     "text": "Introduction\nThe cartography package can be used with base r plot to add map elements and improve the legibility of your maps. Hatching can be an effective way to visualize a map feature but can be a little complicated to add. In this example we will use US States data from the spData package and the cartography package to show how you can add hatching to a map.\n\n# spData makes the us_states data frame available. \nlibrary(spData)\n# sf is needed to read the geometry in the us_states data frame which is an sf object. \nlibrary(sf)\n# cartography allows you to add the hatched and choropleth map layers. \nlibrary(cartography)\n# adds functionality the helps us rearrange the data and is generally wonderful. \nlibrary(tidyverse)\n\nLets visualize population growth in the United States between 2010 and 2015 with a hatched feature showing states that experienced negative growth.\n\n# Use mutate from the tidyverse to create a new variable for population growth called pop_growth.\nus_states_diff <- us_states |> \n  mutate(\"pop_growth\" = total_pop_15 - total_pop_10)\n\nIn order to add the hatched layer we will need a data frame with only the polygons that will be hatched. We can use the tidyverse to accomplish this.\n\n# Creates a data frame with only polygons of states that had negative population growth. \nhatched_df <- us_states_diff |> \n  select(pop_growth) |> \n  filter(pop_growth < 0)\n\nThe cartography package creates layers that can be plotted using plot from base r. This requires that we create a base plot and add all of the layers we want in one code chunk. Here is a quick preview of what we will do below: - Create a base plot. - Create and add a choropleth layer of population growth. - Create and add a hatched layer of showing states with negative population growth. - Add a legend - Set layout options.\n\n# Creates the base plot that all the following layers will be plotted on top of. \nplot(us_states$geometry)\n\n###############################\n####Choropleth Layers##########\n###############################\n\n# Creates and add the choropleth layer to the base plot\nchoroLayer(\n  # specify the data.\n  x = us_states_diff,\n  # specify the variable to be plotted.\n  var = \"pop_growth\",\n  # specify the method of creating breaks.\n  method = \"jenks\",\n  # specify the number of classes.\n  nclass = 5,\n  # sepecify the color palette, these need to be in the order you want them to appear.\n  col = c(\"#cce7c9\",\"#8bca84\",\"#5bb450\",\"#46923c\",\"#276221\"),\n  # specify border color.\n  border = \"black\",\n  # specify line weight.\n  lwd = 0.5,\n  # sets legend position.\n  legend.pos = \"bottomright\",\n  # sets legend title size.\n  legend.title.cex = 0.5,\n  # sets legend values size.\n  legend.values.cex = 0.5,\n  # sets legend title.\n  legend.title.txt = \"Population \\nGrowth\",\n  # adds a frame to the legend.\n  legend.frame = TRUE,\n  # adds this layer to the previous plot.\n  add = TRUE)\n\n# This layer is purely aesthetic and makes it so that the map of United States apears on top of the legend created in the previous layer. \nchoroLayer(\n  x = us_states_diff,\n  var = \"pop_growth\",\n  method = \"jenks\",\n  nclass = 5,\n  col = c(\"#cce7c9\",\"#8bca84\",\"#5bb450\",\"#46923c\",\"#276221\"),\n  border = \"black\",\n  lwd = 0.5,\n  legend.pos = \"n\",\n  add = TRUE)\n\n###############################\n###HATCHED LAYER###############\n###############################\n\n# Creates the hatched layer and adds it to the plot.  \nhatchedLayer(\n  # the data to be plotted, this is the data frame we created earlier of only the states to the hatched. \n  x = hatched_df,\n  # sets the pattern\n  pattern = \"diamond\",\n  # sets the densiry of the pattern,. \n  density = 4,\n  # sets the line weight. \n  lwd = 0.3,\n  # adds the layer to the previous plot. \n  add = TRUE)\n\n#########################################\n######Hatched Legend#####################\n#########################################\n\n# Creates a legend for the hatched layer. This will not be part of the choropleth legend. \nlegendHatched(pos = \"bottomleft\",\n              title.txt = \"\",\n              categ = \"States with Negative Population Growth\",\n              patterns = \"diamond\",\n              density = 1,\n              col = \"black\",\n              ptrn.bg = \"white\")\n\n###############################\n#######Layout options##########\n###############################\n# Creates a layout layer for displaying the map. \nlayoutLayer(title = \"Population Growth in the United States\",\n            frame = TRUE,\n            scale = FALSE\n             )"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Jessica French",
+    "section": "",
+    "text": "I recently started the Master of Environmental Data Science (MEDS) program at the Bren School of Environmental Science & Management after graduating from Oregon State University with a Bachelor of Science in Marine Biology. I previously studied anthropology at the University of Oregon, graduating in 2013, before serving in the United States Coast Guard from 2015 to 2019. My time in the Coast Guard and time spent working as a deckhand in the commercial fishing industry allowed me to experience multiple perspectives on the regulation of marine resources. An internship with the Oregon Department of Fish and Wildlife and volunteering with Oregon Reef Check exposed me to how data is collected and used to monitor the ecological and community impacts of marine reserves. I hope to use the skills I am learning in the MEDS program to aid in the management of marine resources and make the regulatory process transparent and understandable to marine resource users."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Experience\n\n\nPersonal"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog Posts",
+    "section": "",
+    "text": "MEDS\n\n\n\nA brief analysis that explores the potential impact of drought and sea surface temperature on abundance and diversity in the rocky intertidal zone\n\n\n\nJessica French\n\n\nDec 7, 2022\n\n\n\n\n\n\n\n\nNo matching items"
   }
 ]

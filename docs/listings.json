@@ -1,15 +1,15 @@
 [
   {
-    "listing": "/blog.html",
-    "items": [
-      "/blog_posts/2022-12-04-intertidal-iverts-drought/index.html"
-    ]
-  },
-  {
     "listing": "/code_examples.html",
     "items": [
       "/code_examples_contents/2022-12-21-ggplot-example/index.html",
       "/code_examples_contents/2022-12-20-cartography-example/index.html"
+    ]
+  },
+  {
+    "listing": "/blog.html",
+    "items": [
+      "/blog_posts/2022-12-04-intertidal-iverts-drought/index.html"
     ]
   }
 ]

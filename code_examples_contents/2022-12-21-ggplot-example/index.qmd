@@ -19,7 +19,7 @@ library(tidyverse)
 library(palmerpenguins)
 ```
 
-![](preview_images/ggplot2.png){fig-align="center" width="224"}
+![](ggplot2.png){fig-align="center" width="264"}
 
 ### A basic scatter plot
 
