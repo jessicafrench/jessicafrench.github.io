@@ -82,5 +82,12 @@
     "title": "Jessica French",
     "section": "",
     "text": "<!DOCTYPE qgis PUBLIC ‘http://mrcc.com/qgis.dtd’ ‘SYSTEM’>"
+  },
+  {
+    "objectID": "blog_posts/2023-01-09-peru-fisheries/index.html",
+    "href": "blog_posts/2023-01-09-peru-fisheries/index.html",
+    "title": "Peruvian Fisheries Effort",
+    "section": "",
+    "text": "CitationBibTeX citation:@online{french2023,\n  author = {Jessica French},\n  title = {Peruvian {Fisheries} {Effort}},\n  date = {2023-01-10},\n  url = {https://jessicafrench.github.io/2023-01-09-peru-fisheries/},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nJessica French. 2023. “Peruvian Fisheries Effort.” January\n10, 2023. https://jessicafrench.github.io/2023-01-09-peru-fisheries/."
   }
 ]

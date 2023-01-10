@@ -1,5 +1,5 @@
 ---
-title: "Peruvian Fisheries"
+title: "Peruvian Fisheries Effort"
 description: "A brief overview of how fisheries effort data can be used to evaluate patterns in fishing inside and outside of Peru's EEZ."
 author: 
   - name: Jessica French 
