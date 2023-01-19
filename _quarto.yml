@@ -9,10 +9,10 @@ website:
       left:
         - href: index.qmd
           text: Home
-        - href: about.qmd
-          text: About
+        - href: resume.qmd
+          text: Resume
         - href: code_examples.qmd
-          text: Code Examples
+          text: Tutorials
         - href: blog.qmd
           text: Blog Posts
           

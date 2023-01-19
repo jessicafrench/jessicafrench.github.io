@@ -1,5 +1,19 @@
 [
   {
+    "objectID": "resume.html",
+    "href": "resume.html",
+    "title": "Resume",
+    "section": "",
+    "text": "Experience\nOregon Sea Grant Summer and Biological Science Aid (6/21-10/21)\nOregon Department of Fish and Wildlife, Newport, OR\n\nCo-wrote 2 summary reports for human dimensions surveys in support of the Oregon Marine Reserves Synthesis Report.\nCompleted preliminary data analysis using Rstudio and generated tables and figures using Excel.\nGenerated 2 codebooks and a database using Excel to complete data-entry for over 1500 surveys.\n\nSupplemental Instruction Study Table Leader (9/20-3/22)\nAcademic Success Center, Oregon State University\n\nIndependently planned collaborative activities that emphasized effective study strategies.\nLed study groups and facilitate learning in the remote environment while providing a supportive and welcoming environment for a diverse group of students.\n\nUnlicensed Deckhand (6/19-9/19)\nTrident Seafoods, F/V Farwest Leader, Dutch Harbor, AK\n\nIdentified and sorted salmon species in a fast paced environment.\nOperated industrial fish scales and accurately recorded weights of fish delivered by dozens of boats per day.\nOperated the ships crane to transfer 1,500 to 3,000-pound bags of fish.\n\nBoatswains Mate 3rd Class (6/15-6/19)\nUnited States Coast Guard, Newport, OR and Key West, FL\n\nSupervised and performed routine and emergency maintenance. Precisely maintained over 30 current and corrected charts for small boat navigation.\nQualified on 6 boat types with over 200 hours underway performing training, search and rescue, training, and law enforcement operations.\nTrained co-workers in communications watch standing and boat crew member tasks and responsibilities."
+  },
+  {
+    "objectID": "blog_posts/2023-01-09-peru-fisheries/index.html",
+    "href": "blog_posts/2023-01-09-peru-fisheries/index.html",
+    "title": "Peruvian Fisheries Effort",
+    "section": "",
+    "text": "CitationBibTeX citation:@online{french2023,\n  author = {Jessica French},\n  title = {Peruvian {Fisheries} {Effort}},\n  date = {2023-01-10},\n  url = {https://jessicafrench.github.io/2023-01-09-peru-fisheries/},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nJessica French. 2023. “Peruvian Fisheries Effort.” January\n10, 2023. https://jessicafrench.github.io/2023-01-09-peru-fisheries/."
+  },
+  {
     "objectID": "blog_posts/2022-12-04-intertidal-iverts-drought/index.html",
     "href": "blog_posts/2022-12-04-intertidal-iverts-drought/index.html",
     "title": "Drought Impacts on Motile Invertebrates in the Rocky Intertidal",
@@ -60,14 +74,7 @@
     "href": "index.html",
     "title": "Jessica French",
     "section": "",
-    "text": "I recently started the Master of Environmental Data Science (MEDS) program at the Bren School of Environmental Science & Management after graduating from Oregon State University with a Bachelor of Science in Marine Biology. I previously studied anthropology at the University of Oregon, graduating in 2013, before serving in the United States Coast Guard from 2015 to 2019. My time in the Coast Guard and time spent working as a deckhand in the commercial fishing industry allowed me to experience multiple perspectives on the regulation of marine resources. An internship with the Oregon Department of Fish and Wildlife and volunteering with Oregon Reef Check exposed me to how data is collected and used to monitor the ecological and community impacts of marine reserves. I hope to use the skills I am learning in the MEDS program to aid in the management of marine resources and make the regulatory process transparent and understandable to marine resource users."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Experience\n\n\nPersonal"
+    "text": "I recently started the Master of Environmental Data Science (MEDS) program at the Bren School of Environmental Science & Management after graduating from Oregon State University with a Bachelor of Science in Marine Biology. I previously studied anthropology at the University of Oregon, graduating in 2013, before serving in the United States Coast Guard from 2015 to 2019. My time in the Coast Guard and time spent working as a deckhand in the commercial fishing industry allowed me to experience multiple perspectives on the regulation of marine resources.\nAn internship with the Oregon Department of Fish and Wildlife and volunteering with Oregon Reef Check exposed me to how data is collected and used to monitor the ecological and community impacts of marine reserves. I hope to use the skills I am learning in the MEDS program to aid in the management of marine resources and make the regulatory process transparent and understandable to marine resource users."
   },
   {
     "objectID": "blog.html",
@@ -75,19 +82,5 @@
     "title": "Blog Posts",
     "section": "",
     "text": "MEDS\n\n\nFisheries\n\n\nPython\n\n\n\nA brief overview of how fisheries effort data can be used to evaluate patterns in fishing inside and outside of Peru’s EEZ.\n\n\n\nJessica French\n\n\nJan 10, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMEDS\n\n\n\nA brief analysis that explores the potential impact of drought and sea surface temperature on abundance and diversity in the rocky intertidal zone\n\n\n\nJessica French\n\n\nDec 7, 2022\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "blog_posts/2023-01-09-peru-fisheries/data/eez_peru/geojson/eez_peru.html",
-    "href": "blog_posts/2023-01-09-peru-fisheries/data/eez_peru/geojson/eez_peru.html",
-    "title": "Jessica French",
-    "section": "",
-    "text": "<!DOCTYPE qgis PUBLIC ‘http://mrcc.com/qgis.dtd’ ‘SYSTEM’>"
-  },
-  {
-    "objectID": "blog_posts/2023-01-09-peru-fisheries/index.html",
-    "href": "blog_posts/2023-01-09-peru-fisheries/index.html",
-    "title": "Peruvian Fisheries Effort",
-    "section": "",
-    "text": "CitationBibTeX citation:@online{french2023,\n  author = {Jessica French},\n  title = {Peruvian {Fisheries} {Effort}},\n  date = {2023-01-10},\n  url = {https://jessicafrench.github.io/2023-01-09-peru-fisheries/},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nJessica French. 2023. “Peruvian Fisheries Effort.” January\n10, 2023. https://jessicafrench.github.io/2023-01-09-peru-fisheries/."
   }
 ]

@@ -1,0 +1,59 @@
+---
+title: "Resume"
+image: images/catalina_selfie.png
+editor: visual
+---
+
+### Education
+
+**Master of Environmental Data Science** (MEDS) at the Bren School of Environmental Science & Management. Anticipated graduation June 2023.
+
+**B.S. Biology** with a focus in marine biology from Oregon State University 2022
+
+• GPA 4.0
+
+**B.A. Anthropology** with a focus in archaeology from University of Oregon 2013
+
+• Minor in Geological Sciences
+
+• GPA 3.63
+
+### Experience
+
+**Oregon Sea Grant Summer and Biological Science Aid (6/21-10/21)**
+
+**Oregon Department of Fish and Wildlife, Newport, OR**
+
+-   Co-wrote 2 summary reports for human dimensions surveys in support of the Oregon Marine Reserves Synthesis Report.
+
+-   Completed preliminary data analysis using Rstudio and generated tables and figures using Excel.
+
+-   Generated 2 codebooks and a database using Excel to complete data-entry for over 1500 surveys.
+
+**Supplemental Instruction Study Table Leader (9/20-3/22)**
+
+**Academic Success Center, Oregon State University**
+
+-   Independently planned collaborative activities that emphasized effective study strategies.
+
+-   Led study groups and facilitate learning in the remote environment while providing a supportive and welcoming environment for a diverse group of students.
+
+**Unlicensed Deckhand (6/19-9/19)**
+
+**Trident Seafoods, F/V Farwest Leader, Dutch Harbor, AK**
+
+-   Identified and sorted salmon species in a fast paced environment.
+
+-   Operated industrial fish scales and accurately recorded weights of fish delivered by dozens of boats per day.
+
+-   Operated the ships crane to transfer 1,500 to 3,000-pound bags of fish.
+
+**Boatswains Mate 3rd Class (6/15-6/19)**
+
+**United States Coast Guard, Newport, OR and Key West, FL**
+
+-   Supervised and performed routine and emergency maintenance. Precisely maintained over 30 current and corrected charts for small boat navigation.
+
+-   Qualified on 6 boat types with over 200 hours underway performing training, search and rescue, training, and law enforcement operations.
+
+-   Trained co-workers in communications watch standing and boat crew member tasks and responsibilities.

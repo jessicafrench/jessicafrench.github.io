@@ -36,7 +36,7 @@ draft: False
 4.  [Metadata Display]
 5.  [Peruvian Fisheries Use Case Example]
 6.  [Binder Environment]
-7.  [References]
+7.  [References](#references)
 
 ## Notebook Purpose
 
