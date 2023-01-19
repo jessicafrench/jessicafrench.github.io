@@ -69,10 +69,13 @@ The data used belongs to the [first global assessment of commercial fishing acti
 This section will show you how to read in the data and define some of the mapping parameters we will use in later sections.
 
 Load in necessary packages.
-
-```{python}
+```{R}
 # Start python interpreter
 reticulate::repl_python()
+```
+
+```{python}
+
 # Import packages
 import ee
 import geemap
