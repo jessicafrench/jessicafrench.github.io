@@ -75,7 +75,6 @@ reticulate::repl_python()
 ```
 
 ```{python}
-
 # Import packages
 import ee
 import geemap
