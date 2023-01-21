@@ -14,6 +14,7 @@ image: montly_fishing.gif
 format: 
   html:
     code-fold: true 
+jupyter: python3
 toc: true
 draft: False
 ---
@@ -69,10 +70,6 @@ The data used belongs to the [first global assessment of commercial fishing acti
 This section will show you how to read in the data and define some of the mapping parameters we will use in later sections.
 
 Load in necessary packages.
-```{R}
-# Start python interpreter
-reticulate::repl_python()
-```
 
 ```{python}
 # Import packages
@@ -274,7 +271,10 @@ effort_all = fishing_effort_ImgCollection.sum()
 effort_all = effort_all.reduce(ee.Reducer.sum())
 ## Mask out pixels with no effort
 effort_all = effort_all.mask(effort_all.gt(0))
+```
 
+
+```{python}
 # Fishing effort in Peru's EEZ
 effort_EEZ = fishing_effort_ImgCollection.filterBounds(aoi_1).map(lambda image: image.clip(aoi_1))
 ## Aggregate 2016 collection to single image of global fishing effort
@@ -283,15 +283,22 @@ effort_EZZ = effort_EEZ.sum()
 effort_EZZ = effort_EZZ.reduce(ee.Reducer.sum())
 ## Mask out pixels with no effort
 effort_EZZ = effort_EZZ.mask(effort_EZZ.gt(0))
+```
 
+
+```{python}
 # Visualization parameters
 trawlersVis = {
   'palette': ['0C276C', '3B9088', 'EEFF00', 'ffffff']
 }
+```
 
+
+```{python}
 # Comparing the two maps
 left_layer = geemap.ee_tile_layer(effort_EZZ, trawlersVis, name = "All 2016", opacity = 0.9)
 right_layer = geemap.ee_tile_layer(effort_all, trawlersVis, name = "Effort EZZ", opacity = 0.9)
+
 map_comparison = geemap.Map(center = [-15, -83],zoom = 5)
 map_comparison.centerObject(aoi_1, 5)
 map_comparison.setOptions("HYBRID")
@@ -346,7 +353,10 @@ effort_collection = monthly_Sum(fishing_effort_ImgCollection, years, months)
 # Creates a list of the images from the image collection. 
 effort_list = monthly_images(fishing_effort_ImgCollection, years, months)
 len(effort_list)
+```
 
+
+```{python}
 # Creates an empty list to be populated with month and year of images. 
 date_list = []
 
@@ -354,7 +364,6 @@ date_list = []
 for i in effort_list:
   date = i.get('system:time_start').getInfo()
   date_list.append(date)
-    
     
 len(date_list)
 ```
